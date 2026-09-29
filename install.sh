@@ -13,7 +13,7 @@ sudo mkdir -p /usr/share/backgrounds
 sudo cp -r ./septagrounds /usr/share/backgrounds/
 echo "Copied wallpaper."
 sudo cp -r ./septassets /usr/share/
-yay -S --noconfirm mangowc noctalia noctalia-greeter numix-circle-icon-theme kitty
+yay -S --noconfirm mangowm noctalia noctalia-greeter numix-circle-icon-theme kitty
 sudo rm -f /etc/greetd/config.toml
 rm -rf ~/.config/gtk-*
 cp -r ./gtk-3.0 ~/.config/
