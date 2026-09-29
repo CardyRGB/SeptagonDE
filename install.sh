@@ -22,4 +22,5 @@ cp ./septutorial.sh ~/.local/
 chmod +x ~/.local/septutorial.sh
 sudo cp config.toml /etc/greetd/
 echo "Installed the Septagon Desktop Environment! Use the command 'bash ~/.local/septutorial.sh' to get a start."
+echo "To enable noctalia-greeter, disable your current display manager and enable greetd."
 echo "=> z4inn - UX critic trying to make good UX"
