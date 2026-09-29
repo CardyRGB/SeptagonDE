@@ -2,6 +2,7 @@
 
 echo "If you haven't installed yay already, please do. Starting install in 3 seconds. Be ready for any sudo authentication prompts."
 sleep 3
+yay -S --noconfirm mangowm noctalia noctalia-greeter numix-circle-icon-theme kitty
 cp -r ./mango ~/.config/
 echo "Copied mango configuration."
 cp -r ./noctalia ~/.local/state/
@@ -13,7 +14,6 @@ sudo mkdir -p /usr/share/backgrounds
 sudo cp -r ./septagrounds /usr/share/backgrounds/
 echo "Copied wallpaper."
 sudo cp -r ./septassets /usr/share/
-yay -S --noconfirm mangowm noctalia noctalia-greeter numix-circle-icon-theme kitty
 sudo rm -f /etc/greetd/config.toml
 rm -rf ~/.config/gtk-*
 cp -r ./gtk-3.0 ~/.config/
