@@ -1,2 +1,1 @@
-SeptagonDE is a Linux desktop environment using MangoWC and the Noctalia shell.
-(refer to the Google Sites page for installation I'm lazy AF)
+Septagon is a desktop environment that uses MangoWC and Noctalia's shell. It uses a 
