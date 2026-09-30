@@ -8,4 +8,4 @@
 - Down to ~810MB RAM on idle
 - From an Arch minimal installation, Septagon only takes less than 5GB of storage space!
 - Site: https://sites.google.com/view-z4inn-septagon!
-<img width="852" height="480" alt="1" src="https://github.com/user-attachments/assets/dd29133b-c9ab-4cb5-8871-7581436225c0" />
+<img width="852" height="480" alt="1" src="https://github.com/user-attachments/assets/a6ce42c3-2d69-42db-aa6a-a6c45c3bc751" />
