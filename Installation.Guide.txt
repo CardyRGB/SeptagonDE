@@ -1,0 +1,21 @@
+Installation Guide for SeptagonDE
+Steps:
+1 - Download the needed files and extract them
+This can be downloaded from https://github.com/CardyRGB/SeptagonDE/releases, you can also do:
+git clone https://github.com/CardyRGB/SeptagonDE.git
+2 - Install yay
+On stock Arch, this may be done by:
+git clone https://aur.archlinux.org/yay-bin.git && cd yay-bin && makepkg -si
+3 - Install the following packages:
+yay -S mangowm noctalia kitty
+4 - Once installed, do NOT immediately log into Mango. Instead, do this:
+cp -r ./mango ~/.config
+cp -r ./noctalia ~/.local/state
+sudo cp -r ./space-grotesk-ttf /usr/share/fonts/TTF/
+(if it hasn't been made yet, do sudo mkdir -p /usr/share/backgrounds)
+sudo cp -r ./septagrounds /usr/share/backgrounds/
+sudo cp -r ./septassets /usr/share/
+cp ./septutorial.sh ~/.local/
+chmod +x ~/.local/septutorial.sh
+* Optional:
+For a tutorial, run bash ~/.local/septutorial.sh
