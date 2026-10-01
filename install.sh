@@ -9,8 +9,8 @@ sudo mkdir -p /usr/share/fonts/TTF
 sudo mkdir -p /usr/share/backgrounds
 sudo cp -r ./space-grotesk-ttf /usr/share/fonts/TTF/
 sudo cp -r ./septagrounds /usr/share/backgrounds/
-# sudo rm -f /usr/share/wayland-sessions/mango.desktop
-# sudo cp ./mango.desktop /usr/share/wayland-sessions
+sudo rm -f /usr/share/wayland-sessions/mango.desktop
+sudo cp ./mango.desktop /usr/share/wayland-sessions
 echo "Installation done. Run 'bash ~/.local/septutorial.sh' for a basic guide."
 echo "=> z4inn, a UX critic"
 echo "side note: SeptagonDE does NOT come with a greeter. if you're fine with it, launch mango from TTY, or install sddm or configure noctalia-greeter."
