@@ -4,7 +4,6 @@ rm -rf ~/.config/fish
 rm -rf ~/.config/kitty
 cp -r ./fish ~/.config/
 cp -r ./kitty ~/.config/
-source ~/.config/fish/config.fish
 mkdir -p ~/.local/state
 cp -r ./noctalia ~/.local/state/
 cp ./septutorial.sh ~/.local
@@ -14,4 +13,3 @@ sudo cp -r ./space-grotesk-ttf /usr/share/fonts/TTF/
 sudo cp -r ./septagrounds /usr/share/backgrounds/
 sudo rm -f /usr/share/wayland-sessions/mango.desktop
 sudo cp ./mango.desktop /usr/share/wayland-sessions
-chsh -s /usr/bin/fish
