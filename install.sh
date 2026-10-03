@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Starting the SeptagonDE installation in 3 seconds.. Install yay if you haven't. Be ready for a sudo prompt. If packages are already installed and you only need dotfiles, run copydots.sh."
-yay -S --noconfirm mangowm noctalia kitty fish fastfetch brightnessctl playerctl arch-wallpaper
+yay -S --noconfirm mangowm noctalia kitty fish fastfetch brightnessctl playerctl 
 sudo cp -r ./Remus-White /usr/share/icons/
 cp -r ./mango ~/.config/
 rm -rf ~/.config/fish
