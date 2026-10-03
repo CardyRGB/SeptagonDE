@@ -1,56 +1,118 @@
 config_version = 14
 
-[bar.default]
-background_opacity = 0.59999999999999998
-center = [ "group:g2" ]
-end = [ "group:g4", "group:g1" ]
-margin_ends = 0
-radius = 16
-radius_top_left = 0
-radius_top_right = 0
-shadow = false
-start = [ "group:g3" ]
-thickness = 32
+[bar]
+order = [ "default", "bottom" ]
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
+    [bar.bottom]
+    background_opacity = 0.29999999329447746
+    center = [ "taskbar" ]
     enabled = true
-    fill = "surface_variant"
-    id = "g1"
-    members = [ "date", "clock" ]
-    opacity = 0.30000001192092896
-    padding = 11.0
+    end = [ "group:g1" ]
+    margin_ends = 0
+    position = "bottom"
+    shadow = false
+    start = [ "group:g2" ]
+    thickness = 40
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    enabled = true
-    fill = "surface_variant"
-    id = "g2"
-    members = [ "cpu", "temp", "ram" ]
-    opacity = 0.30000001192092896
-    padding = 6.0
+        [[bar.bottom.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "cpu", "temp", "ram" ]
+        opacity = 0.60000002384185791
+        padding = 11.0
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    enabled = true
-    fill = "surface_variant"
-    id = "g3"
-    members = [ "workspaces", "session" ]
-    opacity = 0.30000001192092896
-    padding = 6.0
+        [[bar.bottom.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "settings", "control-center" ]
+        opacity = 0.60000002384185791
+        padding = 11.0
 
-    [[bar.default.capsule_group]]
-    accordion = false
-    accordion_direction = "end"
-    enabled = true
-    fill = "surface_variant"
-    id = "g4"
-    members = [ "network", "volume", "battery" ]
-    opacity = 0.30000001192092896
-    padding = 6.0
+    [bar.default]
+    background_opacity = 0.29999999329447746
+    capsule = true
+    capsule_opacity = 0.29999999329447746
+    center = [ "group:g1", "group:g2" ]
+    end = [ "media", "group:g4" ]
+    margin_ends = 0
+    radius = 16
+    radius_top_left = 0
+    radius_top_right = 0
+    shadow = false
+    start = [ "workspaces" ]
+    thickness = 32
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g1"
+        members = [ "date", "clock" ]
+        opacity = 0.30000001192092896
+        padding = 11.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = false
+        fill = "surface_variant"
+        id = "g2"
+        members = [ "cpu", "temp", "ram" ]
+        opacity = 0.30000001192092896
+        padding = 6.0
+
+        [[bar.default.capsule_group]]
+        accordion = false
+        accordion_direction = "end"
+        border_width = 1.0
+        enabled = true
+        fill = "surface_variant"
+        id = "g4"
+        members = [ "network", "volume", "battery", "session" ]
+        opacity = 0.30000001192092896
+        padding = 6.0
+
+[desktop_widgets]
+schema_version = 2
+widget_order = [ "desktop-widget-0000000000000001" ]
+
+    [desktop_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000001]
+    box_height = 416.0
+    box_width = 1920.0
+    cx = 960.0
+    cy = 208.0
+    flip_y = true
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
+        background = false
+        bands = 24
+        centered = false
+        color_1 = "secondary"
+        color_2 = "tertiary"
+        mirrored = true
+        reversed = false
+        show_when_idle = false
 
 [location]
 auto_locate = true
@@ -105,6 +167,7 @@ card_borders = false
 corner_radius_scale = 2.0
 font_family = "Space Grotesk"
 input_borders = false
+panel_anchor_bar = "default"
 password_style = "random"
 polkit_agent = true
 popup_borders = false
@@ -120,6 +183,53 @@ time_format = "{:%I:%M}"
     polkit_placement = "attached"
     shadow = false
 
+    [shell.screen_corners]
+    enabled = true
+
+    [[shell.session.actions]]
+    action = "lock"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "1"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "logout"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "2"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "lock_and_suspend"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "3"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "reboot"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "4"
+    variant = "default"
+
+    [[shell.session.actions]]
+    action = "shutdown"
+    countdown_seconds = 0.0
+    enabled = true
+    shortcut = "5"
+    variant = "destructive"
+
+    [[shell.session.actions]]
+    action = "command"
+    command = "noctalia msg desktop-widgets-edit"
+    countdown_seconds = 0.0
+    enabled = true
+    glyph = "edit"
+    label = "Desktop Edit"
+    variant = "default"
+
 [theme]
 community_palette = "Oxocarbon"
 mode = "dark"
@@ -131,13 +241,13 @@ wallpaper_scheme = "m3-content"
 directory = "/usr/share/backgrounds"
 
     [wallpaper.default]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonDark.png"
+    path = "/usr/share/backgrounds/septagrounds/SeptagonRain.png"
 
     [wallpaper.last]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonDark.png"
+    path = "/usr/share/backgrounds/septagrounds/SeptagonRain.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonDark.png"
+    path = "/usr/share/backgrounds/septagrounds/SeptagonRain.png"
 
 [widget.cpu]
 visualization = "none"
@@ -145,11 +255,32 @@ visualization = "none"
 [widget.date]
 format = "{:%a %d %b} |"
 
+[widget.launcher]
+glyph = "grid-dots"
+scale = 1.5
+
+[widget.media]
+capsule_opacity = 0.29999999999999999
+hide_album_art = true
+hide_artist = true
+hide_when_no_media = true
+max_length = 800
+
 [widget.network]
 show_label = false
 
 [widget.ram]
 visualization = "none"
+
+[widget.taskbar]
+capsule_opacity = 0.59999999999999998
+group_by_workspace = true
+hide_empty_workspaces = true
+inactive_opacity = 0.48999999999999999
+minimal = true
+scale = 1.5
+show_active_indicator = false
+workspace_label_placement = "inside"
 
 [widget.temp]
 visualization = "none"
