@@ -22,8 +22,6 @@ sudo mkdir -p /usr/share/fonts/TTF
 sudo mkdir -p /usr/share/backgrounds
 sudo cp -r ./space-grotesk-ttf /usr/share/fonts/TTF/
 sudo cp -r ./septagrounds /usr/share/backgrounds/
-sudo rm -f /usr/share/wayland-sessions/mango.desktop
-sudo cp ./mango.desktop /usr/share/wayland-sessions
 
 # config files for global thing so u arent copying dotfiles to other users 
 
