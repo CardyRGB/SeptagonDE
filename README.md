@@ -1,7 +1,6 @@
 
 ### SeptagonDE by z4inn
 - A desktop environment for Arch Linux combining MangoWC and the Noctalia desktop shell.
-- The only dependency for installation of this is **yay.**
 - It works on any Arch distro!
 ## Features
 - 8 built-in 4K stock wallpapers (Septagrounds)
