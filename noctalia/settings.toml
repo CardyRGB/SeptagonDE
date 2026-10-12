@@ -4,7 +4,7 @@ config_version = 14
 order = [ "default", "bottom" ]
 
     [bar.bottom]
-    background_opacity = 0.29999999329447746
+    background_opacity = 0.79999998211860657
     center = [ "taskbar" ]
     enabled = true
     end = [ "group:g1" ]
@@ -37,7 +37,7 @@ order = [ "default", "bottom" ]
         padding = 11.0
 
     [bar.default]
-    background_opacity = 0.29999999329447746
+    background_opacity = 0.79999998211860657
     capsule = true
     capsule_opacity = 0.29999999329447746
     center = [ "group:g1", "group:g2" ]
@@ -57,7 +57,7 @@ order = [ "default", "bottom" ]
         enabled = true
         fill = "surface_variant"
         id = "g1"
-        members = [ "date", "clock" ]
+        members = [ "date", "bar", "clock" ]
         opacity = 0.30000001192092896
         padding = 11.0
 
@@ -85,7 +85,12 @@ order = [ "default", "bottom" ]
 
 [desktop_widgets]
 schema_version = 2
-widget_order = [ "desktop-widget-0000000000000001" ]
+widget_order = [
+    "desktop-widget-0000000000000001",
+    "desktop-widget-0000000000000002",
+    "desktop-widget-0000000000000003",
+    "desktop-widget-0000000000000004"
+]
 
     [desktop_widgets.grid]
     cell_size = 16
@@ -114,18 +119,93 @@ widget_order = [ "desktop-widget-0000000000000001" ]
         reversed = false
         show_when_idle = false
 
+    [desktop_widgets.widget.desktop-widget-0000000000000002]
+    box_height = 288.0
+    box_width = 288.0
+    cx = 1696.0
+    cy = 252.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "calendar"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
+        background_opacity = 0.5
+        background_radius = 32
+        show_events = false
+
+    [desktop_widgets.widget.desktop-widget-0000000000000003]
+    box_height = 240.0
+    box_width = 272.0
+    cx = 1696.0
+    cy = 556.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "sysmon"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
+        background_opacity = 0.5
+        background_radius = 32
+        stat = "cpu_usage"
+        stat2 = "cpu_temp"
+
+    [desktop_widgets.widget.desktop-widget-0000000000000004]
+    box_height = 144.0
+    box_width = 256.0
+    cx = 1696.0
+    cy = 772.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "weather"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        background_opacity = 0.5
+        background_radius = 32
+
 [location]
 auto_locate = true
 
 [lockscreen_widgets]
 enabled = false
 schema_version = 2
-widget_order = [ "lockscreen-login-box@eDP-1" ]
+widget_order = [ "lockscreen-login-box@WL-1", "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@WL-1"]
+    box_height = 196.0
+    box_width = 720.0
+    cx = 225.0
+    cy = 309.87216186523438
+    output = "WL-1"
+    placement_height = 496.0
+    placement_width = 450.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@WL-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
@@ -167,7 +247,6 @@ card_borders = false
 corner_radius_scale = 2.0
 font_family = "Space Grotesk"
 input_borders = false
-panel_anchor_bar = "default"
 password_style = "random"
 polkit_agent = true
 popup_borders = false
@@ -178,61 +257,65 @@ time_format = "{:%I:%M}"
 
     [shell.panel]
     borders = false
-    clipboard_placement = "attached"
-    launcher_placement = "attached"
-    polkit_placement = "attached"
+    clipboard_position = "bottom_center"
+    launcher_position = "bottom_center"
+    list_item_background = true
     shadow = false
+    transparency_mode = "glass"
 
     [shell.screen_corners]
     enabled = true
 
-    [[shell.session.actions]]
-    action = "lock"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "1"
-    variant = "default"
+    [shell.session]
+    grid = true
+    grid_columns = 5
 
-    [[shell.session.actions]]
-    action = "logout"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "2"
-    variant = "default"
+        [[shell.session.actions]]
+        action = "lock"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "1"
+        variant = "default"
 
-    [[shell.session.actions]]
-    action = "lock_and_suspend"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "3"
-    variant = "default"
+        [[shell.session.actions]]
+        action = "logout"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "2"
+        variant = "default"
 
-    [[shell.session.actions]]
-    action = "reboot"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "4"
-    variant = "default"
+        [[shell.session.actions]]
+        action = "lock_and_suspend"
+        countdown_seconds = 0.0
+        enabled = false
+        shortcut = "3"
+        variant = "default"
 
-    [[shell.session.actions]]
-    action = "shutdown"
-    countdown_seconds = 0.0
-    enabled = true
-    shortcut = "5"
-    variant = "destructive"
+        [[shell.session.actions]]
+        action = "reboot"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "4"
+        variant = "default"
 
-    [[shell.session.actions]]
-    action = "command"
-    command = "noctalia msg desktop-widgets-edit"
-    countdown_seconds = 0.0
-    enabled = true
-    glyph = "edit"
-    label = "Desktop Edit"
-    variant = "default"
+        [[shell.session.actions]]
+        action = "shutdown"
+        countdown_seconds = 0.0
+        enabled = true
+        shortcut = "5"
+        variant = "destructive"
+
+        [[shell.session.actions]]
+        action = "command"
+        command = "noctalia msg desktop-widgets-edit"
+        countdown_seconds = 0.0
+        enabled = true
+        glyph = "edit"
+        label = "Desktop Edit"
+        variant = "default"
 
 [theme]
 community_palette = "Oxocarbon"
-mode = "dark"
 pure_black_dark = true
 source = "wallpaper"
 wallpaper_scheme = "m3-content"
@@ -241,26 +324,32 @@ wallpaper_scheme = "m3-content"
 directory = "/usr/share/backgrounds"
 
     [wallpaper.default]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonRain.png"
+    path = "/usr/share/backgrounds/septagrounds/SeptagonSky.png"
 
     [wallpaper.last]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonRain.png"
+    path = "/usr/share/backgrounds/septagrounds/SeptagonSky.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonRain.png"
+    path = "/usr/share/backgrounds/septagrounds/SeptagonSky.png"
+
+[widget.bar]
+text = "|"
+type = "text"
+
+[widget.clock]
+format = "{:%I:%M}"
 
 [widget.cpu]
 visualization = "none"
-
-[widget.date]
-format = "{:%a %d %b} |"
 
 [widget.launcher]
 glyph = "grid-dots"
 scale = 1.5
 
 [widget.media]
+capsule = true
 capsule_opacity = 0.29999999999999999
+capsule_padding = 11
 hide_album_art = true
 hide_artist = true
 hide_when_no_media = true
@@ -275,11 +364,11 @@ visualization = "none"
 [widget.taskbar]
 capsule_opacity = 0.59999999999999998
 group_by_workspace = true
-hide_empty_workspaces = true
 inactive_opacity = 0.48999999999999999
 minimal = true
 scale = 1.5
 show_active_indicator = false
+show_workspace_label = false
 workspace_label_placement = "inside"
 
 [widget.temp]
@@ -289,4 +378,5 @@ visualization = "none"
 show_label = false
 
 [widget.workspaces]
-show_labels = false
+capsule = true
+style = "minimal"
