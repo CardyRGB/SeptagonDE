@@ -1,6 +1,14 @@
 #!/bin/bash
-echo "Starting the SeptagonDE installation in 3 seconds.. Install yay if you haven't. Be ready for a sudo prompt. If packages are already installed and you only need dotfiles, run copydots.sh."
-yay -S --noconfirm mangowm noctalia kitty fish fastfetch brightnessctl playerctl 
+echo "Starting the SeptagonDE installation in 3 seconds. Be ready for one or more sudo prompts."
+sudo pacman -S --noconfirm noctalia kitty fish fastfetch brightnessctl playerctl xorg-server base-devel git
+mkdir ./tmp
+cd ./tmp
+git clone https://aur.archlinux.org/mangowm-git.git
+cd mangowm-git
+makepkg --noconfirm -si
+cd ..
+cd ..
+rm -rf ./tmp
 
 # deploying stuff
 
@@ -36,6 +44,14 @@ sudo cp -r ./noctalia /etc/skel/.local/state/
 # tilapia
 
 chsh -s /usr/bin/fish
-echo "Installation done. Run 'bash ~/.local/septutorial.sh' for a basic guide."
+echo "CHANGES MADE TO THE SYSTEM:"
+echo " => Installed and changed shell to fish"
+echo " => Packages installed:"
+echo " BASE - MangoWM, Noctalia, Kitty, Fish, and xorg-server"
+echo " REQUIREMENTS - base-devel and git"
+echo " AESTHETICS - Remus-White cursor and Fastfetch"
+echo " UTILITIES - Brightnessctl and Playerctl"
+echo "Installation done. Log out and back into Mango, and then run septutorial in fish."
 echo "=> z4inn, a UX critic"
 echo "side note: SeptagonDE does NOT come with a greeter. if you're fine with it, launch mango from TTY, or install sddm or configure noctalia-greeter."
+fish
