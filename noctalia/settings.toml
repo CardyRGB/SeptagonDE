@@ -324,13 +324,13 @@ wallpaper_scheme = "m3-content"
 directory = "/usr/share/backgrounds"
 
     [wallpaper.default]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonSky.png"
+    path = "/usr/share/backgrounds/septagrounds/Septapurple.png"
 
     [wallpaper.last]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonSky.png"
+    path = "/usr/share/backgrounds/septagrounds/Septapurple.png"
 
     [wallpaper.monitors.eDP-1]
-    path = "/usr/share/backgrounds/septagrounds/SeptagonSky.png"
+    path = "/usr/share/backgrounds/septagrounds/Septapurple.png"
 
 [widget.bar]
 text = "|"
