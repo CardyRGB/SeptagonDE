@@ -1,18 +1,6 @@
 #!/bin/bash
 echo "Starting the SeptagonDE (with reccomended software) installation in 3 seconds. Be ready for one or more sudo prompts."
-sudo pacman -S --noconfirm firefox nautilus gnome-text-editor noctalia kitty fish fastfetch brightnessctl pipewire playerctl xorg-server base-devel git libnotify
-mkdir ./tmp
-cd ./tmp
-git clone https://aur.archlinux.org/mangowm-git.git
-cd mangowm-git
-makepkg --noconfirm -si
-cd ..
-git clone https://aur.archlinux.org/yay-bin.git
-cd yay-bin
-makepkg --noconfirm -si
-cd ..
-cd ..
-rm -rf ./tmp
+sudo pacman -S --noconfirm firefox nautilus gnome-text-editor noctalia kitty fish fastfetch brightnessctl pipewire playerctl xorg-server base-devel git libnotify mangowm
 
 # deploying stuff
 
