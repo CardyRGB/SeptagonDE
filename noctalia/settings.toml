@@ -1,4 +1,4 @@
-config_version = 14
+config_version = 15
 
 [bar]
 order = [ "default", "bottom" ]
@@ -8,58 +8,61 @@ order = [ "default", "bottom" ]
     center = [ "taskbar" ]
     enabled = true
     end = [ "group:g1" ]
-    margin_ends = 0
+    margin_edge = 4
+    margin_ends = 4
+    padding = 5
     position = "bottom"
+    radius = 32
     shadow = false
     start = [ "group:g2" ]
     thickness = 40
 
+        [bar.bottom.dead_zone.actions]
+        scroll_left = "exec mmsg dispatch viewtoleft"
+        scroll_right = "exec mmsg dispatch viewtoleft"
+
         [[bar.bottom.capsule_group]]
         accordion = false
         accordion_direction = "end"
+        border = "primary"
         border_width = 1.0
         enabled = true
         fill = "surface_variant"
         id = "g1"
         members = [ "cpu", "temp", "ram" ]
-        opacity = 0.60000002384185791
+        opacity = 0.0
         padding = 11.0
 
         [[bar.bottom.capsule_group]]
         accordion = false
         accordion_direction = "end"
+        border = "primary"
         border_width = 1.0
         enabled = true
         fill = "surface_variant"
         id = "g2"
         members = [ "settings", "control-center" ]
-        opacity = 0.60000002384185791
+        opacity = 0.0
         padding = 11.0
 
     [bar.default]
-    background_opacity = 0.79999998211860657
+    background_opacity = 0.4999999888241291
     capsule = true
+    capsule_border = "primary"
     capsule_opacity = 0.29999999329447746
-    center = [ "group:g1", "group:g2" ]
+    center = [ "notifications", "clock", "session", "group:g2" ]
     end = [ "media", "group:g4" ]
-    margin_ends = 0
+    margin_edge = 4
+    margin_ends = 4
+    padding = 5
     radius = 16
-    radius_top_left = 0
-    radius_top_right = 0
     shadow = false
     start = [ "workspaces" ]
     thickness = 32
 
-        [[bar.default.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        border_width = 1.0
-        enabled = true
-        fill = "surface_variant"
-        id = "g1"
-        members = [ "date", "bar", "clock" ]
-        opacity = 0.30000001192092896
-        padding = 11.0
+        [bar.default.dead_zone.actions]
+        scroll_left = "exec mmsg dispatch viewtoleft"
+        scroll_right = "exec mmsg dispatch viewtoright"
 
         [[bar.default.capsule_group]]
         accordion = false
@@ -75,55 +78,38 @@ order = [ "default", "bottom" ]
         [[bar.default.capsule_group]]
         accordion = false
         accordion_direction = "end"
+        border = "primary"
         border_width = 1.0
         enabled = true
         fill = "surface_variant"
+        foreground = "primary"
         id = "g4"
-        members = [ "network", "volume", "battery", "session" ]
+        members = [ "network", "volume", "battery" ]
         opacity = 0.30000001192092896
         padding = 6.0
 
 [desktop_widgets]
 schema_version = 2
 widget_order = [
-    "desktop-widget-0000000000000001",
+    "desktop-widget-0000000000000008",
+    "desktop-widget-0000000000000005",
     "desktop-widget-0000000000000002",
     "desktop-widget-0000000000000003",
-    "desktop-widget-0000000000000004"
+    "desktop-widget-0000000000000004",
+    "desktop-widget-0000000000000006",
+    "desktop-widget-0000000000000007"
 ]
 
     [desktop_widgets.grid]
-    cell_size = 16
+    cell_size = 8
     major_interval = 4
     visible = true
 
-    [desktop_widgets.widget.desktop-widget-0000000000000001]
-    box_height = 416.0
-    box_width = 1920.0
-    cx = 960.0
-    cy = 208.0
-    flip_y = true
-    output = "eDP-1"
-    placement_height = 1080.0
-    placement_width = 1920.0
-    rotation = 0.0
-    type = "audio_visualizer"
-
-        [desktop_widgets.widget.desktop-widget-0000000000000001.settings]
-        background = false
-        bands = 24
-        centered = false
-        color_1 = "secondary"
-        color_2 = "tertiary"
-        mirrored = true
-        reversed = false
-        show_when_idle = false
-
     [desktop_widgets.widget.desktop-widget-0000000000000002]
-    box_height = 288.0
-    box_width = 288.0
+    box_height = 272.0
+    box_width = 256.0
     cx = 1696.0
-    cy = 252.0
+    cy = 468.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -131,15 +117,15 @@ widget_order = [
     type = "calendar"
 
         [desktop_widgets.widget.desktop-widget-0000000000000002.settings]
-        background_opacity = 0.5
+        background_opacity = 0.80000000000000004
         background_radius = 32
         show_events = false
 
     [desktop_widgets.widget.desktop-widget-0000000000000003]
-    box_height = 240.0
-    box_width = 272.0
+    box_height = 216.0
+    box_width = 256.0
     cx = 1696.0
-    cy = 556.0
+    cy = 728.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -147,7 +133,7 @@ widget_order = [
     type = "sysmon"
 
         [desktop_widgets.widget.desktop-widget-0000000000000003.settings]
-        background_opacity = 0.5
+        background_opacity = 0.80000000000000004
         background_radius = 32
         stat = "cpu_usage"
         stat2 = "cpu_temp"
@@ -156,7 +142,7 @@ widget_order = [
     box_height = 144.0
     box_width = 256.0
     cx = 1696.0
-    cy = 772.0
+    cy = 924.0
     output = "eDP-1"
     placement_height = 1080.0
     placement_width = 1920.0
@@ -164,8 +150,74 @@ widget_order = [
     type = "weather"
 
         [desktop_widgets.widget.desktop-widget-0000000000000004.settings]
+        background_opacity = 0.80000000000000004
+        background_radius = 32
+
+    [desktop_widgets.widget.desktop-widget-0000000000000005]
+    box_height = 952.0
+    box_width = 288.0
+    cx = 1696.0
+    cy = 533.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "label"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000005.settings]
         background_opacity = 0.5
         background_radius = 32
+        opacity = 0.0
+
+    [desktop_widgets.widget.desktop-widget-0000000000000006]
+    box_height = 248.0
+    box_width = 264.0
+    cx = 1694.5
+    cy = 194.5
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "clock"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000006.settings]
+        background_radius = 32
+        center_text = true
+        clock_style = "analog"
+        shadow = false
+
+    [desktop_widgets.widget.desktop-widget-0000000000000007]
+    box_height = 0.0
+    box_width = 0.0
+    cx = 211.0
+    cy = 124.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "media_player"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000007.settings]
+        background = true
+        background_opacity = 0.80000000000000004
+        background_radius = 32
+        hide_when_no_media = true
+
+    [desktop_widgets.widget.desktop-widget-0000000000000008]
+    box_height = 112.0
+    box_width = 304.0
+    cx = 208.0
+    cy = 124.0
+    output = "eDP-1"
+    placement_height = 1080.0
+    placement_width = 1920.0
+    rotation = 0.0
+    type = "audio_visualizer"
+
+        [desktop_widgets.widget.desktop-widget-0000000000000008.settings]
+        background = false
+        bands = 32
+        show_when_idle = false
 
 [location]
 auto_locate = true
@@ -258,10 +310,12 @@ time_format = "{:%I:%M}"
     [shell.panel]
     borders = false
     clipboard_position = "bottom_center"
+    control_center_placement = "floating"
     launcher_position = "bottom_center"
-    list_item_background = true
+    session_placement = "floating"
     shadow = false
     transparency_mode = "glass"
+    wallpaper_show_names = false
 
     [shell.screen_corners]
     enabled = true
@@ -332,12 +386,8 @@ directory = "/usr/share/backgrounds"
     [wallpaper.monitors.eDP-1]
     path = "/usr/share/backgrounds/septagrounds/Septapurple.png"
 
-[widget.bar]
-text = "|"
-type = "text"
-
 [widget.clock]
-format = "{:%I:%M}"
+format = " {:%b %d | %I:%M} "
 
 [widget.cpu]
 visualization = "none"
@@ -379,4 +429,4 @@ show_label = false
 
 [widget.workspaces]
 capsule = true
-style = "minimal"
+show_labels = false
